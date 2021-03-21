@@ -1,0 +1,49 @@
+﻿@model Rocky.Models.Category
+
+<form method="post" asp-action="Edit">
+    <!--As Id never used, this line will post the Id of the object to make sure correct object is edited.-->
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <!--Validation summary can be All/ModelOnly/None. This line does not need to be used only to change summary away from ModelOnly-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Edit Category</h2>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label for="" asp-for="DisplayOrder"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="DisplayOrder" class="form-control" />
+                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" class="btn btn-info w-100">Update</button>
+            </div>
+            <div class="col-3 ">
+                <a asp-action="Index" class="btn btn-primary w-100">Back</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <!-- Client side validation done automatically by calling partial scripts-->
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
